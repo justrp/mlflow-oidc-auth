@@ -1,4 +1,6 @@
 class User:
+    PASSWORD_HASH_REPR = "REDACTED"
+    
     def __init__(
         self,
         id_,
@@ -88,7 +90,7 @@ class User:
             id_=dictionary["id"],
             username=dictionary["username"],
             display_name=dictionary["display_name"],
-            password_hash="REDACTED",
+            password_hash=cls.PASSWORD_HASH_REPR,
             is_admin=dictionary["is_admin"],
             experiment_permissions=[ExperimentPermission.from_json(p) for p in dictionary["experiment_permissions"]],
             registered_model_permissions=[
